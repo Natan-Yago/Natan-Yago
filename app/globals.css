@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+/* Tailwind CSS theme variables using modern approach */
+:root {
+  /* Light theme colors using Tailwind's slate and gray colors */
+  --background: 0 0% 100%; /* white */
+  --foreground: 0, 0%, 4%;; /* slate-700 */
+  --muted: 0, 0%, 98%; /* gray-100 */
+  --muted-foreground: 215 16% 47%; /* slate-500 */
+  --primary: 221 83% 53%; /* blue-500 */
+  --primary-foreground: 210 40% 98%; /* gray-50 */
+  --border: 214.3 31.8% 95.4%; /* gray-200 */
+  
+  --radius: 0.5rem;
+}
+
+/* Dark mode class for manual theme toggling */
+.dark {
+  --background:0, 0%, 4%; /* slate-900 */
+  --foreground: 210 40% 98%; /* gray-50 */
+  --muted: 0, 0%, 6%; /* slate-700 */
+  --muted-foreground: 217.9 10.6% 64.9%; /* gray-400 */
+  --primary: 221 83% 53%; /* blue-500 */
+  --primary-foreground: 210 40% 98%; /* gray-50 */
+  --border: 0, 0%, 12%; /* slate-800 */
+}
+
+/* Prevent flash of unstyled content */
+html {
+  color-scheme: light dark;
+}
+
+/* Base styles */
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-feature-settings: "rlig" 1, "calt" 1;
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* Smooth theme transitions */
+*,
+*::before,
+*::after {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Base styles with smooth transitions */
+* {
+  border-color: var(--border);
+}
+
+body {
+  background: var(--background);
+  color: hsl(var(--foreground));
+  font-family: var(--font-inter), var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Disable transitions for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Container utility class */
+.container-narrow {
+  max-width: 37.5rem; /* 600px */
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Header specific styles for better dark mode support */
+header {
+  background-color: hsl(var(--background) / 0.8);
+  border-color: hsl(var(--border));
+}
+
+/* Ensure backdrop blur works properly */
+@supports (backdrop-filter: blur(12px)) {
+  header {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+/* Extended utility classes using the theme variables */
+.bg-background {
+  background-color: hsl(var(--background));
+}
+.bg-border {
+  background-color: hsl(var(--border));
+}
+.text-foreground {
+  color: hsl(var(--foreground));
+}
+
+.text-muted-foreground {
+  color: hsl(var(--muted-foreground));
+}
+
+.border-border {
+  border-color: hsl(var(--border));
+}
+
+.text-primary {
+  color: hsl(var(--primary));
+}
+
+.text-primary-foreground {
+  color: hsl(var(--primary-foreground));
+}
+
+/* Disable transitions for specific elements */
+.transition-none {
+  transition: none !important;
+}
+
+/* Disable transitions for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Three-column grid layout */
+.grid-layout-3col {
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 600px) 1fr;
+  width: 100%;
+  gap: 1px;
+  background-color: hsl(var(--border));
+  /* border-top: 1px solid hsl(var(--border)); */
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+/* Responsive grid for mobile devices */
+@media (max-width: 768px) {
+  .grid-layout-3col {
+    grid-template-columns: 2.5fr 95fr 2.5fr;
+  }
+}
+
+.grid-layout-3col > * {
+  background-color: hsl(var(--background));
+  min-height: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.grid-row {
+  display: contents;
+}
+
+.grid-cell {
+  padding: 1rem;
+  height: 100%;
+}
+
+.grid-cell-center-color{
+  background-color: hsl(var(--muted));
+}
+
+/* Reduce padding on mobile devices */
+@media (max-width: 768px) {
+  .grid-cell {
+    padding: 0.5rem;
+  }
+}
