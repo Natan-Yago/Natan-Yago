@@ -1,10 +1,11 @@
 "use client";
 
 import ThemeSwitcher from "../ui/theme-switcher";
+import Grid, { GridRow } from "../ui/grid";
 
 /**
  * Simple Footer Component
- * 
+ *
  * Features:
  * - 3-column grid layout (using grid-test.js structure)
  * - Footer content in center cell (cell 2)
@@ -18,23 +19,18 @@ export default function Footer() {
   return (
     <footer className="w-full bg-background mt-auto">
       <div>
-        <div className="grid-layout-3col">
-          {/* Row 1 - Footer content in center cell */}
-          <div className="grid-cell"></div>
-          <div className="grid-cell">
-            {/* Footer content centered */}
-            <div className="flex justify-between items-center pt-6">
-              {/* Copyright notice - left side */}
-              <p className="text-xs text-muted-foreground">
-                {currentYear} Natan Yago. All rights reserved.
-              </p>
-              
-              {/* Theme switcher - right side */}
-              <ThemeSwitcher />
-            </div>
-          </div>
-          <div className="grid-cell"></div>
-        </div>
+        <Grid>
+          <GridRow
+            center={
+              <div className="flex justify-between items-center pt-6">
+                <p className="text-xs text-muted-foreground">
+                  {currentYear} Natan Yago. All rights reserved.
+                </p>
+                <ThemeSwitcher />
+              </div>
+            }
+          />
+        </Grid>
       </div>
     </footer>
   );

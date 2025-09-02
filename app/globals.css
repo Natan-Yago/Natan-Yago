@@ -4,25 +4,25 @@
 :root {
   /* Light theme colors using Tailwind's slate and gray colors */
   --background: 0 0% 100%; /* white */
-  --foreground: 0, 0%, 4%;; /* slate-700 */
-  --muted: 0, 0%, 98%; /* gray-100 */
+  --foreground: 0 0% 4%; /* slate-700 */
+  --muted: 0 0% 98%; /* gray-100 */
   --muted-foreground: 215 16% 47%; /* slate-500 */
   --primary: 221 83% 53%; /* blue-500 */
   --primary-foreground: 210 40% 98%; /* gray-50 */
   --border: 214.3 31.8% 95.4%; /* gray-200 */
-  
+
   --radius: 0.5rem;
 }
 
 /* Dark mode class for manual theme toggling */
 .dark {
-  --background:0, 0%, 4%; /* slate-900 */
+  --background: 0 0% 4%; /* slate-900 */
   --foreground: 210 40% 98%; /* gray-50 */
-  --muted: 0, 0%, 6%; /* slate-700 */
+  --muted: 0 0% 6%; /* slate-700 */
   --muted-foreground: 217.9 10.6% 64.9%; /* gray-400 */
   --primary: 221 83% 53%; /* blue-500 */
   --primary-foreground: 210 40% 98%; /* gray-50 */
-  --border: 0, 0%, 12%; /* slate-800 */
+  --border: 0 0% 12%; /* slate-800 */
 }
 
 /* Prevent flash of unstyled content */
@@ -46,7 +46,8 @@ body {
 *,
 *::before,
 *::after {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -59,7 +60,8 @@ body {
 body {
   background: var(--background);
   color: hsl(var(--foreground));
-  font-family: var(--font-inter), var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), var(--font-geist-sans), Arial, Helvetica,
+    sans-serif;
 }
 
 /* Disable transitions for users who prefer reduced motion */
@@ -172,7 +174,7 @@ header {
   height: 100%;
 }
 
-.grid-cell-center-color{
+.grid-cell-center-color {
   background-color: hsl(var(--muted));
 }
 
