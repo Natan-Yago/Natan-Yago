@@ -24,14 +24,19 @@ export function GridRow({
   centerClassName = "",
   leftClassName = "",
   rightClassName = "",
+  leftPadding = "p-2 md:p-4",
+  centerPadding = "p-2 md:p-4",
+  rightPadding = "p-2 md:p-4",
 }) {
-  const cell = "p-2 md:p-4 h-full bg-background";
+  const baseCell = "h-full bg-background";
   const centerBg = centerMuted ? "bg-[hsl(var(--muted))]" : "bg-background";
   return (
     <>
-      <div className={cx(cell, leftClassName)}>{left}</div>
-      <div className={cx(cell, centerBg, centerClassName)}>{center}</div>
-      <div className={cx(cell, rightClassName)}>{right}</div>
+      <div className={cx(leftPadding, baseCell, leftClassName)}>{left}</div>
+      <div className={cx(centerPadding, baseCell, centerBg, centerClassName)}>
+        {center}
+      </div>
+      <div className={cx(rightPadding, baseCell, rightClassName)}>{right}</div>
     </>
   );
 }
@@ -42,7 +47,7 @@ export function GridCell({
   className = "",
   ...props
 }) {
-  const cell = "p-2 md:p-4 h-full";
+  const cell = "  h-full";
   const centerBg = centerMuted ? "bg-[hsl(var(--muted))]" : "";
   return (
     <div className={cx(cell, centerBg, className)} {...props}>

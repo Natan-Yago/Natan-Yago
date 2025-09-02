@@ -51,17 +51,19 @@ export default function WorkExperience() {
                   Work Experience
                 </h2>
                 <ActionButton
-                  href="/resume"
+                  href="/Natan-Yagodaev-cv.pdf"
                   text="View Resume"
                   hoverText="Check it out"
                   icon={
                     <BriefcaseIcon className="h-3 w-3" aria-hidden="true" />
                   }
+                  target="_blank"
+                  rel="noopener noreferrer"
                 />
               </div>
               <div className="grid grid-cols-1 gap-4 lg:gap-5">
                 <SpotlightBorder
-                  borderColor="rgb(151, 151, 151)"
+                  borderColor="hsl(var(--primary))"
                   spotlightSize="30% 40px"
                 >
                   <div className="border border-border p-4 rounded-lg bg-background">
@@ -89,7 +91,7 @@ export default function WorkExperience() {
                 </SpotlightBorder>
 
                 <SpotlightBorder
-                  borderColor="rgb(151, 151, 151)"
+                  borderColor="hsl(var(--primary))"
                   spotlightSize="30% 40px"
                 >
                   <div className="border border-border p-4 rounded-lg bg-background">

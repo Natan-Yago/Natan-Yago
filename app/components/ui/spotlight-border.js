@@ -1,24 +1,25 @@
 "use client";
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState } from "react";
 
 /**
  * SpotlightBorder component
- * 
+ *
  * A reusable component that adds a spotlight border effect to any content
  * The spotlight follows the mouse cursor around the border
- * 
+ *
  * @param {ReactNode} children - The content to wrap with the spotlight border
  * @param {string} className - Additional classes to apply to the main container
  * @param {string} borderColor - Color of the spotlight border (default: "rgb(var(--accent))")
  * @param {string} spotlightSize - Size of the spotlight (default: "30% 30px")
  * @returns {JSX.Element}
  */
-export default function SpotlightBorder({ 
-  children, 
-  className = "", 
+export default function SpotlightBorder({
+  children,
+  className = "",
   borderColor = "rgb(var(--accent))",
-  spotlightSize = "30% 30px"
+  spotlightSize = "30% 30px",
+  radiusClass = "rounded-lg",
 }) {
   const divRef = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -43,11 +44,11 @@ export default function SpotlightBorder({
 
   return (
     <div className={`relative ${className}`}>
-      <div 
+      <div
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className="relative z-10 rounded-lg"
+        className={`relative z-10 ${radiusClass}`}
       >
         {children}
       </div>
@@ -57,10 +58,10 @@ export default function SpotlightBorder({
           border: `1px solid ${borderColor}`,
           opacity,
           WebkitMaskImage: `radial-gradient(${spotlightSize} at ${position.x}px ${position.y}px, black 45%, transparent)`,
-          maskImage: `radial-gradient(${spotlightSize} at ${position.x}px ${position.y}px, black 45%, transparent)`
+          maskImage: `radial-gradient(${spotlightSize} at ${position.x}px ${position.y}px, black 45%, transparent)`,
         }}
         aria-hidden="true"
-        className="pointer-events-none absolute left-0 top-0 z-20 h-full w-full cursor-default rounded-lg border bg-transparent transition-opacity duration-500"
+        className={`pointer-events-none absolute left-0 top-0 z-20 h-full w-full cursor-default ${radiusClass} border bg-transparent transition-opacity duration-500`}
       />
     </div>
   );

@@ -12,20 +12,21 @@ export default async function WorkPage() {
         <Grid>
           <GridRow />
           <GridRow
+            center={
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground text-center transition-none">
+                All work
+              </h1>
+            }
+          />
+          <GridRow />
+          <GridRow
             centerClassName="grid-cell-center-color"
             center={
-              <>
-                <div className="flex justify-between items-center mb-10">
-                  <h1 className="text-base text-foreground text-left max-w-2xl">
-                    All work
-                  </h1>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-5">
-                  {items.map((project) => (
-                    <ProjectCard key={project.slug} project={project} />
-                  ))}
-                </div>
-              </>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-5">
+                {items.map((project) => (
+                  <ProjectCard key={project.slug} project={project} />
+                ))}
+              </div>
             }
           />
           <GridRow />

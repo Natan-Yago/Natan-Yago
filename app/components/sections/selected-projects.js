@@ -88,7 +88,7 @@ export default function SelectedProjects() {
                 <ActionButton
                   href="/work"
                   text="Browse more"
-                  hoverText="All work"
+                  hoverText="All Projects"
                   icon={
                     <ArrowRightIcon className="h-3 w-3" aria-hidden="true" />
                   }

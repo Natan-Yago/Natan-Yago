@@ -100,7 +100,7 @@
     "links": { "live": null, "repo": null },
     "role": "Frontend",
     "client": "Psycle",
-    "featured": false,
+    "featured": true,
     "priority": 14,
     "caseStudy": false
   },
@@ -115,7 +115,7 @@
     "links": { "live": null, "repo": null },
     "role": "Frontend",
     "client": "Hila Kadi",
-    "featured": false,
+    "featured": true,
     "priority": 15,
     "caseStudy": false
   },

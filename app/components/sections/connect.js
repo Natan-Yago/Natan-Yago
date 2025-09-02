@@ -77,7 +77,7 @@ export default function Connect() {
                 className="grid grid-cols-1  gap-8 lg:gap-5"
               >
                 <SpotlightBorder
-                  borderColor="rgb(156, 156, 156)"
+                  borderColor="hsl(var(--primary))"
                   spotlightSize="30% 40px"
                 >
                   <div className="border border-border p-6 rounded-lg bg-background">
