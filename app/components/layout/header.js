@@ -8,7 +8,7 @@ import MenuModal from "../ui/menu-modal";
 
 const navItems = [
   { name: "Work", href: "/work" },
-  { name: "Work Experience", href: "/#work-experience" },
+  { name: "Experience", href: "/#work-experience" },
   { name: "Connect", href: "/#connect" },
 ];
 

@@ -82,9 +82,10 @@ export default function Connect() {
                 >
                   <div className="border border-border p-6 rounded-lg bg-background">
                     {/* <h3 className="text-lg font-medium text-foreground mb-4">Get in Touch</h3> */}
-                    <p className="text-muted-foreground mb-6 text-sm">
+                    <p className="text-muted-foreground mb-6 text-sm md:max-w-[60%]">
                       I'm always open to discussing new projects, creative ideas
-                      or opportunities to be part of your vision.
+                      or opportunities. If it lives on the web, we can make it
+                      happen.
                     </p>
 
                     <div className="space-y-4">
@@ -101,6 +102,8 @@ export default function Connect() {
                           href="https://linkedin.com/in/natanyagodaev"
                           className="text-foreground hover:text-primary transition-colors"
                           aria-label="LinkedIn Profile"
+                          target="_blank"
+                          rel="noopener"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -115,6 +118,8 @@ export default function Connect() {
                           href="https://github.com/natanyagodaev"
                           className="text-foreground hover:text-primary transition-colors"
                           aria-label="GitHub Profile"
+                          target="_blank"
+                          rel="noopener"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -129,6 +134,8 @@ export default function Connect() {
                           href="https://wa.me/972544775476"
                           className="text-foreground hover:text-primary transition-colors"
                           aria-label="WhatsApp"
+                          target="_blank"
+                          rel="noopener"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"

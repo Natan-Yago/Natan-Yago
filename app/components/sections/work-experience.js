@@ -8,7 +8,7 @@ import SpotlightBorder from "../ui/spotlight-border";
 import Grid, { GridRow } from "../ui/grid";
 
 /**
- * Work Experience Section Component
+ * Experience Section Component
  *
  * Features:
  * - GSAP animations on scroll
@@ -48,7 +48,7 @@ export default function WorkExperience() {
                   ref={titleRef}
                   className="text-base text-foreground text-left max-w-2xl"
                 >
-                  Work Experience
+                  Experience
                 </h2>
                 <ActionButton
                   href="/Natan-Yagodaev-cv.pdf"
@@ -58,7 +58,7 @@ export default function WorkExperience() {
                     <BriefcaseIcon className="h-3 w-3" aria-hidden="true" />
                   }
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                 />
               </div>
               <div className="grid grid-cols-1 gap-4 lg:gap-5">

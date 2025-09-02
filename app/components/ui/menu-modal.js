@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
+import ThemeSwitcher from "./theme-switcher";
 
 /**
  * MenuModal
@@ -125,17 +126,22 @@ export default function MenuModal({ isOpen, onClose, items = [], id }) {
         ref={panelRef}
         className="fixed left-0 right-0 top-16 bottom-0 overflow-y-auto"
       >
-        <nav className="h-full w-full flex flex-col items-center justify-center gap-6 p-6">
-          {items.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-2xl md:text-3xl text-foreground hover:text-accent-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              onClick={onClose}
-            >
-              {item.name}
-            </Link>
-          ))}
+        <nav className="relative h-full w-full flex flex-col items-center justify-center p-6">
+          <div className="flex flex-col items-center justify-center gap-6 mt-10">
+            {items.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-2xl md:text-3xl text-foreground hover:text-accent-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                onClick={onClose}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+          <div className="absolute left-1/2 -translate-x-1/2 bottom-6">
+            <ThemeSwitcher />
+          </div>
         </nav>
       </div>
     </div>

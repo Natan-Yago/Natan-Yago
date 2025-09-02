@@ -27,7 +27,7 @@ export const metadata = {
 
 /**
  * Root Layout Component with Enhanced Dark Mode Support
- * 
+ *
  * Features:
  * - Font optimization with Inter, Geist Sans, and Geist Mono
  * - Theme provider wrapping for consistent dark mode
@@ -69,9 +69,7 @@ export default function RootLayout({ children }) {
         >
           <div className="min-h-screen bg-background flex flex-col">
             <Header />
-            <main className="relative flex-grow">
-              {children}
-            </main>
+            <main className="relative flex-grow">{children}</main>
             <Footer />
           </div>
         </ThemeProvider>
