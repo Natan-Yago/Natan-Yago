@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import ProjectCard from "../ui/project-card";
 import ActionButton from "../ui/action-button";
 import Grid, { GridRow } from "../ui/grid";
+import { listWork } from "@/app/lib/work";
 
 /**
  * Selected Projects Section Component
@@ -20,19 +21,37 @@ import Grid, { GridRow } from "../ui/grid";
 export default function SelectedProjects() {
   const titleRef = useRef(null);
   const projectsRef = useRef(null);
+  const [projects, setProjects] = useState([]);
 
+  // Load featured items from data layer
   useEffect(() => {
-    if (titleRef.current && projectsRef.current) {
-      // Animate title
-      gsap.fromTo(
-        titleRef.current,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }
-      );
+    let isMounted = true;
+    (async () => {
+      const featured = await listWork({ featuredOnly: true });
+      if (isMounted) setProjects(featured);
+    })();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
-      // Animate project cards with stagger
+  // Animate when content is ready
+  useEffect(() => {
+    if (!titleRef.current || !projectsRef.current) return;
+    if (!projects || projects.length === 0) return;
+
+    const titleEl = titleRef.current;
+    const gridEl = projectsRef.current;
+
+    gsap.fromTo(
+      titleEl,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }
+    );
+
+    if (gridEl && gridEl.children && gridEl.children.length > 0) {
       gsap.fromTo(
-        projectsRef.current.children,
+        gridEl.children,
         { opacity: 0, y: 50 },
         {
           opacity: 1,
@@ -45,44 +64,11 @@ export default function SelectedProjects() {
       );
     }
 
-    // Cleanup function
     return () => {
-      if (titleRef.current && projectsRef.current) {
-        gsap.killTweensOf([titleRef.current, projectsRef.current.children]);
-      }
+      if (titleEl) gsap.killTweensOf(titleEl);
+      if (gridEl && gridEl.children) gsap.killTweensOf(gridEl.children);
     };
-  }, []);
-
-  const projects = [
-    {
-      id: 1,
-      title: "Deloitte Israel Website",
-      description: "Design and development of a website for Deloitte Israel",
-      image: "/images/projects/DCOM.png",
-      category: "Web Development",
-    },
-    {
-      id: 2,
-      title: "Deloitte Digital",
-      description: "UI kit to make beautiful, animated interfaces.",
-      image: "/images/projects/DD.png",
-      category: "UI/UX Design",
-    },
-    {
-      id: 3,
-      title: "Deloitte Israel Mobile App",
-      description: "Design and development of a website for Deloitte Israel",
-      image: "/images/projects/DCOM.png",
-      category: "Web Development",
-    },
-    {
-      id: 4,
-      title: "Deloitte Digital Mobile App",
-      description: "UI kit to make beautiful, animated interfaces.",
-      image: "/images/projects/DD.png",
-      category: "UI/UX Design",
-    },
-  ];
+  }, [projects]);
 
   return (
     <section id="projects">
@@ -92,17 +78,17 @@ export default function SelectedProjects() {
           centerClassName="grid-cell-center-color"
           center={
             <>
-              <div className="flex flex justify-between items-center mb-10">
+              <div className="flex justify-between items-center mb-10">
                 <h2
                   ref={titleRef}
                   className="text-base text-foreground text-left max-w-2xl"
                 >
-                  Selected Projects
+                  Selected Work
                 </h2>
                 <ActionButton
                   href="/work"
-                  text="Browse More"
-                  hoverText="All Projects"
+                  text="Browse more"
+                  hoverText="All work"
                   icon={
                     <ArrowRightIcon className="h-3 w-3" aria-hidden="true" />
                   }
@@ -113,7 +99,7 @@ export default function SelectedProjects() {
                 className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-5"
               >
                 {projects.map((project) => (
-                  <ProjectCard key={project.id} project={project} />
+                  <ProjectCard key={project.slug} project={project} />
                 ))}
               </div>
             </>

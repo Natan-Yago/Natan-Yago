@@ -7,9 +7,9 @@ import { useEffect, useRef, useState } from "react";
 import MenuModal from "../ui/menu-modal";
 
 const navItems = [
-  { name: "Projects", href: "#projects" },
-  { name: "Work Experience", href: "#work-experience" },
-  { name: "Connect", href: "#connect" },
+  { name: "Work", href: "/work" },
+  { name: "Work Experience", href: "/#work-experience" },
+  { name: "Connect", href: "/#connect" },
 ];
 
 /**
@@ -89,7 +89,7 @@ export default function Header() {
           isHidden ? "-translate-y-full" : "translate-y-0"
         }`}
       >
-        <div className="container-narrow">
+        <div className="max-w-[37.5rem] mx-auto w-full px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo (left side) */}
             <div className="flex items-center">

@@ -1,24 +1,16 @@
 "use client";
 
-/**
- * Grid UI primitives built on top of the global 3-column grid classes.
- *
- * Usage patterns:
- * - <Grid> wraps a full section's grid rows
- * - <GridRow> renders exactly three grid cells (left/center/right)
- * - <GridCell> provides low-level control if you want to hand-build rows
- *
- * These components only compose CSS classes defined in globals.css and do not
- * introduce any layout behavior beyond class application.
- */
-
 import React from "react";
 
 const cx = (...classes) => classes.filter(Boolean).join(" ");
 
+// Tailwind-only 3-column grid
 export default function Grid({ children, className = "", ...props }) {
+  // Mobile-first columns then tighten at md+
+  const base =
+    "grid w-full gap-px bg-border border-b border-border grid-cols-[2.5fr_95fr_2.5fr] md:grid-cols-[1fr_minmax(auto,600px)_1fr]";
   return (
-    <div className={cx("grid-layout-3col", className)} {...props}>
+    <div className={cx(base, className)} {...props}>
       {children}
     </div>
   );
@@ -33,19 +25,13 @@ export function GridRow({
   leftClassName = "",
   rightClassName = "",
 }) {
+  const cell = "p-2 md:p-4 h-full bg-background";
+  const centerBg = centerMuted ? "bg-[hsl(var(--muted))]" : "bg-background";
   return (
     <>
-      <div className={cx("grid-cell", leftClassName)}>{left}</div>
-      <div
-        className={cx(
-          "grid-cell",
-          centerMuted && "grid-cell-center-color",
-          centerClassName
-        )}
-      >
-        {center}
-      </div>
-      <div className={cx("grid-cell", rightClassName)}>{right}</div>
+      <div className={cx(cell, leftClassName)}>{left}</div>
+      <div className={cx(cell, centerBg, centerClassName)}>{center}</div>
+      <div className={cx(cell, rightClassName)}>{right}</div>
     </>
   );
 }
@@ -56,15 +42,10 @@ export function GridCell({
   className = "",
   ...props
 }) {
+  const cell = "p-2 md:p-4 h-full";
+  const centerBg = centerMuted ? "bg-[hsl(var(--muted))]" : "";
   return (
-    <div
-      className={cx(
-        "grid-cell",
-        centerMuted && "grid-cell-center-color",
-        className
-      )}
-      {...props}
-    >
+    <div className={cx(cell, centerBg, className)} {...props}>
       {children}
     </div>
   );
