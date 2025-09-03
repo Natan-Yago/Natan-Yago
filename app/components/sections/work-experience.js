@@ -10,8 +10,6 @@ import AnimatedInView from "@/app/components/ui/animated-in-view";
 export default function WorkExperience() {
   const titleRef = useRef(null);
 
-  useEffect(() => {}, []);
-
   return (
     <section id="work-experience">
       <Grid>

@@ -3,7 +3,6 @@ import SelectedProjects from "./components/sections/selected-projects";
 import MobileProjectsCarousel from "./components/sections/mobile-projects-carousel";
 import WorkExperience from "./components/sections/work-experience";
 import Connect from "./components/sections/connect";
-import GridTest from "./components/sections/grid-test";
 import Skills from "./components/sections/skills";
 import { listWork } from "./lib/work";
 

@@ -8,7 +8,7 @@ import AnimatedInView from "@/app/components/ui/animated-in-view";
  * Simple Footer Component
  *
  * Features:
- * - 3-column grid layout (using grid-test.js structure)
+ * - 3-column grid layout
  * - Footer content in center cell (cell 2)
  * - Copyright notice on the left
  * - Theme switcher on the right

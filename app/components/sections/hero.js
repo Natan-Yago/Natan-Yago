@@ -1,7 +1,6 @@
 "use client";
 
 import AnimatedDiv from "@/app/components/ui/animated-div";
-import AnnouncementBar from "../ui/announcement-bar";
 import Grid, { GridRow } from "../ui/grid";
 
 /**

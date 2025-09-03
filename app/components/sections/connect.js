@@ -1,10 +1,7 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import {
-  EnvelopeIcon,
-  ArrowTopRightOnSquareIcon,
-} from "@heroicons/react/24/solid";
+import { useRef } from "react";
+import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import ActionButton from "../ui/action-button";
 import SpotlightBorder from "../ui/spotlight-border";
 import Grid, { GridRow } from "../ui/grid";
@@ -21,8 +18,7 @@ import AnimatedInView from "@/app/components/ui/animated-in-view";
  */
 export default function Connect() {
   const titleRef = useRef(null);
-  const contentRef = useRef(null);
-  useEffect(() => {}, []);
+  
 
   return (
     <section id="connect">
@@ -67,7 +63,6 @@ export default function Connect() {
                   spotlightSize="30% 40px"
                 >
                   <div className="border border-border p-6 rounded-lg bg-background">
-                    {/* <h3 className="text-lg font-medium text-foreground mb-4">Get in Touch</h3> */}
                     <p className="text-muted-foreground mb-6 text-sm md:max-w-[60%]">
                       I'm always open to discussing new projects, creative ideas
                       or opportunities. If it lives on the web, we can make it
