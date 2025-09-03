@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import { gsap } from "gsap";
 import {
   EnvelopeIcon,
   ArrowTopRightOnSquareIcon,
@@ -9,6 +8,7 @@ import {
 import ActionButton from "../ui/action-button";
 import SpotlightBorder from "../ui/spotlight-border";
 import Grid, { GridRow } from "../ui/grid";
+import AnimatedInView from "@/app/components/ui/animated-in-view";
 
 /**
  * Connect Section Component
@@ -22,34 +22,7 @@ import Grid, { GridRow } from "../ui/grid";
 export default function Connect() {
   const titleRef = useRef(null);
   const contentRef = useRef(null);
-
-  useEffect(() => {
-    if (titleRef.current && contentRef.current) {
-      // Animate title
-      gsap.fromTo(
-        titleRef.current,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }
-      );
-
-      // Animate content with slight delay
-      gsap.fromTo(
-        contentRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.8, delay: 0.2, ease: "power3.out" }
-      );
-    }
-
-    // Cleanup function
-    return () => {
-      if (titleRef.current) {
-        gsap.killTweensOf(titleRef.current);
-      }
-      if (contentRef.current) {
-        gsap.killTweensOf(contentRef.current);
-      }
-    };
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <section id="connect">
@@ -59,22 +32,35 @@ export default function Connect() {
           center={
             <>
               <div className="flex justify-between items-center mb-10">
-                <h2
-                  ref={titleRef}
-                  className="text-base text-foreground text-left max-w-2xl"
+                <AnimatedInView animation="fadeIn" blur className="opacity-0">
+                  <h2
+                    ref={titleRef}
+                    className="text-base text-foreground text-left max-w-2xl"
+                  >
+                    Connect
+                  </h2>
+                </AnimatedInView>
+                <AnimatedInView
+                  animation="fadeIn"
+                  options={{ delay: 0.08 }}
+                  blur
+                  className="opacity-0"
                 >
-                  Connect
-                </h2>
-                <ActionButton
-                  href="mailto:natanyagodaev@gmail.com"
-                  text="Email Me"
-                  hoverText="Let's Chat"
-                  icon={<EnvelopeIcon className="h-3 w-3" aria-hidden="true" />}
-                />
+                  <ActionButton
+                    href="mailto:natanyagodaev@gmail.com"
+                    text="Email Me"
+                    hoverText="Let's Chat"
+                    icon={
+                      <EnvelopeIcon className="h-3 w-3" aria-hidden="true" />
+                    }
+                  />
+                </AnimatedInView>
               </div>
-              <div
-                ref={contentRef}
-                className="grid grid-cols-1  gap-8 lg:gap-5"
+              <AnimatedInView
+                animation="fadeIn"
+                options={{ delay: 0.12 }}
+                blur
+                className="opacity-0 grid grid-cols-1  gap-8 lg:gap-5"
               >
                 <SpotlightBorder
                   borderColor="hsl(var(--primary))"
@@ -150,7 +136,7 @@ export default function Connect() {
                     </div>
                   </div>
                 </SpotlightBorder>
-              </div>
+              </AnimatedInView>
             </>
           }
         />

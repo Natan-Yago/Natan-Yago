@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
+import AnimatedDiv from "@/app/components/ui/animated-div";
+import AnimatedInView from "@/app/components/ui/animated-in-view";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import ProjectCard from "../ui/project-card";
 import ActionButton from "../ui/action-button";
@@ -18,14 +19,16 @@ import { listWork } from "@/app/lib/work";
  * - Dark mode support
  * - Responsive design for mobile and desktop
  */
-export default function SelectedProjects() {
+export default function SelectedProjects({ projects: initialProjects = [] }) {
   const titleRef = useRef(null);
   const projectsRef = useRef(null);
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState(initialProjects);
+  const [revealCards, setRevealCards] = useState(false);
 
-  // Load featured items from data layer
+  // Fallback client fetch only if no SSR data provided
   useEffect(() => {
     let isMounted = true;
+    if (initialProjects && initialProjects.length > 0) return;
     (async () => {
       const featured = await listWork({ featuredOnly: true });
       if (isMounted) setProjects(featured);
@@ -33,42 +36,29 @@ export default function SelectedProjects() {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [initialProjects]);
 
-  // Animate when content is ready
+  // Observe grid to trigger card animations only when grid enters viewport (desktop focus)
   useEffect(() => {
-    if (!titleRef.current || !projectsRef.current) return;
-    if (!projects || projects.length === 0) return;
-
-    const titleEl = titleRef.current;
-    const gridEl = projectsRef.current;
-
-    gsap.fromTo(
-      titleEl,
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }
+    if (!projectsRef.current) return;
+    const el = projectsRef.current;
+    let hasTriggered = false;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((ent) => {
+          if (ent.isIntersecting && !hasTriggered) {
+            hasTriggered = true;
+            setRevealCards(true);
+            observer.unobserve(el);
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0, rootMargin: "0px 0px -10% 0px" }
     );
-
-    if (gridEl && gridEl.children && gridEl.children.length > 0) {
-      gsap.fromTo(
-        gridEl.children,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power3.out",
-          stagger: 0.2,
-          delay: 0.3,
-        }
-      );
-    }
-
-    return () => {
-      if (titleEl) gsap.killTweensOf(titleEl);
-      if (gridEl && gridEl.children) gsap.killTweensOf(gridEl.children);
-    };
-  }, [projects]);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [projectsRef]);
 
   return (
     <section id="projects">
@@ -79,27 +69,42 @@ export default function SelectedProjects() {
           center={
             <>
               <div className="flex justify-between items-center mb-10">
-                <h2
-                  ref={titleRef}
-                  className="text-base text-foreground text-left max-w-2xl"
+                <AnimatedDiv animation="fadeIn" blur className="opacity-0">
+                  <h2 className="text-base text-foreground text-left max-w-2xl">
+                    Selected Work
+                  </h2>
+                </AnimatedDiv>
+                <AnimatedDiv
+                  animation="fadeIn"
+                  options={{ delay: 0.1 }}
+                  blur
+                  className="opacity-0"
                 >
-                  Selected Work
-                </h2>
-                <ActionButton
-                  href="/work"
-                  text="Browse more"
-                  hoverText="All Projects"
-                  icon={
-                    <ArrowRightIcon className="h-3 w-3" aria-hidden="true" />
-                  }
-                />
+                  <ActionButton
+                    href="/work"
+                    text="Browse more"
+                    hoverText="All Projects"
+                    icon={
+                      <ArrowRightIcon className="h-3 w-3" aria-hidden="true" />
+                    }
+                  />
+                </AnimatedDiv>
               </div>
               <div
                 ref={projectsRef}
                 className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-5"
               >
                 {projects.map((project) => (
-                  <ProjectCard key={project.slug} project={project} />
+                  <AnimatedInView
+                    key={project.slug}
+                    animation="fadeInUp"
+                    blur={3}
+                    className="md:opacity-0"
+                    threshold={0.15}
+                    rootMargin="0px 0px -10% 0px"
+                  >
+                    <ProjectCard project={project} />
+                  </AnimatedInView>
                 ))}
               </div>
             </>

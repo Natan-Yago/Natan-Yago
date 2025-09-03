@@ -5,6 +5,8 @@ import Link from "next/link";
 import ThemeSwitcher from "../ui/theme-switcher";
 import { useEffect, useRef, useState } from "react";
 import MenuModal from "../ui/menu-modal";
+import AnimatedDiv from "@/app/components/ui/animated-div";
+import * as entry from "@/app/lib/animation/entry";
 
 const navItems = [
   { name: "Work", href: "/work" },
@@ -28,6 +30,8 @@ export default function Header() {
   const [isHidden, setIsHidden] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const lastScrollYRef = useRef(0);
+  const headerRef = useRef(null);
+  const prevHiddenRef = useRef(false);
 
   useEffect(() => {
     lastScrollYRef.current = window.scrollY || 0;
@@ -74,6 +78,15 @@ export default function Header() {
     }
   }, [isMenuOpen]);
 
+  // Fade+blur header when it reappears after being hidden (on scroll up)
+  useEffect(() => {
+    const wasHidden = prevHiddenRef.current;
+    if (!isHidden && wasHidden && headerRef.current && !isMenuOpen) {
+      entry.fadeIn(headerRef.current, { duration: "fast", blur: 6 });
+    }
+    prevHiddenRef.current = isHidden;
+  }, [isHidden, isMenuOpen]);
+
   const handleToggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
   };
@@ -85,6 +98,7 @@ export default function Header() {
   return (
     <>
       <header
+        ref={headerRef}
         className={`sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md transition-colors duration-300 will-change-transform motion-safe:transition-transform ${
           isHidden ? "-translate-y-full" : "translate-y-0"
         }`}
@@ -93,29 +107,33 @@ export default function Header() {
           <div className="flex items-center justify-between h-16">
             {/* Logo (left side) */}
             <div className="flex items-center">
-              <Link href="/" className="flex items-center">
-                <Image
-                  src="/ny.png"
-                  alt="Logo"
-                  width={36}
-                  height={36}
-                  className="h-9 w-auto rounded-full"
-                />
-              </Link>
+              <AnimatedDiv animation="fadeIn" className="opacity-0">
+                <Link href="/" className="flex items-center">
+                  <Image
+                    src="/ny.png"
+                    alt="Logo"
+                    width={36}
+                    height={36}
+                    className="h-9 w-auto rounded-full"
+                  />
+                </Link>
+              </AnimatedDiv>
             </div>
 
             {/* Mobile menu button */}
             <div className="flex md:hidden">
-              <button
-                type="button"
-                className="inline-flex items-center justify-center px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent transition-colors duration-200 focus:outline-none"
-                aria-label={isMenuOpen ? "Close main menu" : "Open main menu"}
-                aria-expanded={isMenuOpen}
-                aria-controls="menu-modal"
-                onClick={handleToggleMenu}
-              >
-                {isMenuOpen ? "Close" : "Menu"}
-              </button>
+              <AnimatedDiv animation="fadeIn" blur className="opacity-0">
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent transition-colors duration-200 focus:outline-none"
+                  aria-label={isMenuOpen ? "Close main menu" : "Open main menu"}
+                  aria-expanded={isMenuOpen}
+                  aria-controls="menu-modal"
+                  onClick={handleToggleMenu}
+                >
+                  {isMenuOpen ? "Close" : "Menu"}
+                </button>
+              </AnimatedDiv>
             </div>
 
             {/* Desktop Navigation (center) */}
@@ -125,21 +143,33 @@ export default function Header() {
                 role="navigation"
                 aria-label="Main navigation"
               >
-                {navItems.map((item) => (
-                  <Link
+                {navItems.map((item, index) => (
+                  <AnimatedDiv
                     key={item.name}
-                    href={item.href}
-                    className="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium rounded-md hover:bg-accent"
+                    animation="fadeIn"
+                    options={{ delay: index * 0.08, duration: "fast" }}
+                    className="opacity-0"
                   >
-                    {item.name}
-                  </Link>
+                    <Link
+                      href={item.href}
+                      className="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium rounded-md hover:bg-accent"
+                    >
+                      {item.name}
+                    </Link>
+                  </AnimatedDiv>
                 ))}
               </nav>
             </div>
 
             {/* Theme Switcher (right side) - Hidden on mobile */}
             <div className="hidden md:flex items-center">
-              <ThemeSwitcher />
+              <AnimatedDiv
+                animation="fadeIn"
+                options={{ delay: 0.16, duration: "fast" }}
+                className="opacity-0"
+              >
+                <ThemeSwitcher />
+              </AnimatedDiv>
             </div>
           </div>
         </div>

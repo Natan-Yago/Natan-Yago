@@ -6,6 +6,7 @@ import Carousel from "../ui/carousel";
 import { listWork } from "@/app/lib/work";
 import ActionButton from "../ui/action-button";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
+import AnimatedDiv from "@/app/components/ui/animated-div";
 
 /**
  * MobileProjectsCarousel
@@ -13,11 +14,15 @@ import { ArrowRightIcon } from "@heroicons/react/24/solid";
  * One-column carousel section for mobile breakpoints.
  * Hidden at md+ where the regular grid is shown.
  */
-export default function MobileProjectsCarousel() {
-  const [projects, setProjects] = useState([]);
+export default function MobileProjectsCarousel({
+  projects: initialProjects = [],
+}) {
+  const [projects, setProjects] = useState(initialProjects);
 
+  // Fallback fetch only when SSR didn't provide projects
   useEffect(() => {
     let isMounted = true;
+    if (initialProjects && initialProjects.length > 0) return;
     (async () => {
       const featured = await listWork({ featuredOnly: true });
       if (isMounted) setProjects(featured);
@@ -25,7 +30,7 @@ export default function MobileProjectsCarousel() {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [initialProjects]);
 
   // No animated background images beneath pagination per request
 
@@ -38,23 +43,35 @@ export default function MobileProjectsCarousel() {
           center={
             <>
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-base text-foreground text-left">
-                  Selected Work
-                </h2>
-                <ActionButton
-                  href="/work"
-                  text="Browse more"
-                  hoverText="All Projects"
-                  icon={
-                    <ArrowRightIcon className="h-3 w-3" aria-hidden="true" />
-                  }
-                />
+                <AnimatedDiv animation="fadeIn" blur className="opacity-0">
+                  <h2 className="text-base text-foreground text-left">
+                    Selected Work
+                  </h2>
+                </AnimatedDiv>
+                <AnimatedDiv
+                  animation="fadeIn"
+                  options={{ delay: 0.08 }}
+                  blur
+                  className="opacity-0"
+                >
+                  <ActionButton
+                    href="/work"
+                    text="Browse more"
+                    hoverText="All Projects"
+                    icon={
+                      <ArrowRightIcon className="h-3 w-3" aria-hidden="true" />
+                    }
+                  />
+                </AnimatedDiv>
               </div>
-              <Carousel
-                projects={projects}
-                intervalMs={3200}
-                paginationFillColor="hsl(var(--muted-foreground))"
-              />
+              <AnimatedDiv animation="fadeInUp" blur={3} className="opacity-0">
+                <Carousel
+                  className="min-h-[280px]"
+                  projects={projects}
+                  intervalMs={3200}
+                  paginationFillColor="hsl(var(--muted-foreground))"
+                />
+              </AnimatedDiv>
             </>
           }
         />

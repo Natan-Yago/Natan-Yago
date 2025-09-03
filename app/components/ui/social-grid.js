@@ -1,5 +1,6 @@
 const cx = (...classes) => classes.filter(Boolean).join(" ");
 import SpotlightBorder from "./spotlight-border";
+import AnimatedInView from "@/app/components/ui/animated-in-view";
 
 export default function SocialGrid({
   items = [],
@@ -15,7 +16,7 @@ export default function SocialGrid({
         className
       )}
     >
-      {items.map((label) => (
+      {items.map((label, index) => (
         <div role="listitem" key={label}>
           <SpotlightBorder
             className="h-full w-full"
@@ -23,9 +24,16 @@ export default function SocialGrid({
             spotlightSize={spotlightSize}
             radiusClass="rounded-none"
           >
-            <div className="bg-background text-xs md:text-sm text-muted-foreground flex items-center justify-center px-4 py-6 min-h-[56px]">
-              {label}
-            </div>
+            <AnimatedInView
+              animation="fadeIn"
+              blur
+              className="opacity-0"
+              threshold={0}
+            >
+              <div className="bg-background text-xs md:text-sm text-muted-foreground flex items-center justify-center px-4 py-6 min-h-[56px]">
+                {label}
+              </div>
+            </AnimatedInView>
           </SpotlightBorder>
         </div>
       ))}

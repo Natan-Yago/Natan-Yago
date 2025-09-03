@@ -5,16 +5,19 @@ import WorkExperience from "./components/sections/work-experience";
 import Connect from "./components/sections/connect";
 import GridTest from "./components/sections/grid-test";
 import Skills from "./components/sections/skills";
+import { listWork } from "./lib/work";
 
-export default function Home() {
+export default async function Home() {
+  const featured = await listWork({ featuredOnly: true });
+
   return (
     <>
       <Hero />
       {/* Mobile carousel first, visible only on small screens */}
-      <MobileProjectsCarousel />
+      <MobileProjectsCarousel projects={featured} />
       {/* Desktop/tablet grid version */}
       <div className="hidden md:block">
-        <SelectedProjects />
+        <SelectedProjects projects={featured} />
       </div>
       <WorkExperience />
       <Skills />

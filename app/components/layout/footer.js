@@ -2,6 +2,7 @@
 
 import ThemeSwitcher from "../ui/theme-switcher";
 import Grid, { GridRow } from "../ui/grid";
+import AnimatedInView from "@/app/components/ui/animated-in-view";
 
 /**
  * Simple Footer Component
@@ -22,11 +23,28 @@ export default function Footer() {
         <Grid>
           <GridRow
             center={
-              <div className="flex justify-between items-center pt-6">
-                <p className="text-xs text-muted-foreground">
-                  {currentYear} Natan Yago. All rights reserved.
-                </p>
-                <ThemeSwitcher />
+              <div className="flex justify-between items-center">
+                <AnimatedInView
+                  animation="fadeIn"
+                  blur
+                  className="opacity-0"
+                  threshold={0}
+                  rootMargin="0px 0px 25% 0px"
+                >
+                  <p className="text-xs text-muted-foreground">
+                    {currentYear} Natan Yago. All rights reserved.
+                  </p>
+                </AnimatedInView>
+                <AnimatedInView
+                  animation="fadeIn"
+                  options={{ delay: 0.08 }}
+                  blur
+                  className="opacity-0"
+                  threshold={0}
+                  rootMargin="0px 0px 25% 0px"
+                >
+                  <ThemeSwitcher />
+                </AnimatedInView>
               </div>
             }
           />
