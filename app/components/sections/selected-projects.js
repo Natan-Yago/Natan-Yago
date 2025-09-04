@@ -65,13 +65,13 @@ export default function SelectedProjects({ projects: initialProjects = [] }) {
       <Grid>
         <GridRow />
         <GridRow
-          centerClassName="grid-cell-center-color"
+          centerMuted={true}
           center={
             <>
               <div className="flex justify-between items-center mb-10">
                 <AnimatedDiv animation="fadeIn" blur className="opacity-0">
                   <h2 className="text-base text-foreground text-left max-w-2xl">
-                    Selected Work
+                    Latest Work
                   </h2>
                 </AnimatedDiv>
                 <AnimatedDiv

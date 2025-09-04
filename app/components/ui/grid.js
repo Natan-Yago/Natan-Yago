@@ -29,7 +29,7 @@ export function GridRow({
   rightPadding = "p-2 md:p-4",
 }) {
   const baseCell = "h-full bg-background";
-  const centerBg = centerMuted ? "bg-[hsl(var(--muted))]" : "bg-background";
+  const centerBg = centerMuted ? "bg-muted" : "bg-background";
   return (
     <>
       <div className={cx(leftPadding, baseCell, leftClassName)}>{left}</div>
@@ -48,7 +48,7 @@ export function GridCell({
   ...props
 }) {
   const cell = "  h-full";
-  const centerBg = centerMuted ? "bg-[hsl(var(--muted))]" : "";
+  const centerBg = centerMuted ? "bg-muted" : "";
   return (
     <div className={cx(cell, centerBg, className)} {...props}>
       {children}

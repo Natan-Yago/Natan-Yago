@@ -25,7 +25,7 @@ export default function Skills() {
     <section id="skills">
       <Grid>
         <GridRow
-          centerClassName="grid-cell-center-color"
+          centerMuted={true}
           centerPadding="p-0"
           center={
             <AnimatedInView animation="fadeIn" blur className="opacity-0">

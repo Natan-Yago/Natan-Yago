@@ -39,13 +39,13 @@ export default function MobileProjectsCarousel({
       <Grid>
         <GridRow />
         <GridRow
-          centerClassName="grid-cell-center-color"
+          centerMuted={true}
           center={
             <>
               <div className="flex justify-between items-center mb-4">
                 <AnimatedDiv animation="fadeIn" blur className="opacity-0">
                   <h2 className="text-base text-foreground text-left">
-                    Selected Work
+                    Latest Work
                   </h2>
                 </AnimatedDiv>
                 <AnimatedDiv

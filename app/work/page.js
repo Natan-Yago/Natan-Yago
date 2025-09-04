@@ -20,7 +20,7 @@ export default async function WorkPage() {
           />
           <GridRow />
           <GridRow
-            centerClassName="grid-cell-center-color"
+            centerMuted={true}
             center={
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-5">
                 {items.map((project) => (

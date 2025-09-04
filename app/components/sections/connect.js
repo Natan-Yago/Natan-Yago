@@ -18,13 +18,12 @@ import AnimatedInView from "@/app/components/ui/animated-in-view";
  */
 export default function Connect() {
   const titleRef = useRef(null);
-  
 
   return (
     <section id="connect">
       <Grid>
         <GridRow
-          centerClassName="grid-cell-center-color"
+          centerMuted={true}
           center={
             <>
               <div className="flex justify-between items-center mb-10">

@@ -14,6 +14,7 @@ export default function WorkExperience() {
     <section id="work-experience">
       <Grid>
         <GridRow
+          centerMuted={true}
           center={
             <>
               <div className="flex justify-between items-center mb-10">

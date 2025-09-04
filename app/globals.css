@@ -93,6 +93,9 @@ header {
 .bg-background {
   background-color: hsl(var(--background));
 }
+.bg-muted {
+  background-color: hsl(var(--muted));
+}
 .bg-border {
   background-color: hsl(var(--border));
 }
