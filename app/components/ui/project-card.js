@@ -1,6 +1,8 @@
 "use client";
 
 import { forwardRef } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import SpotlightBorder from "./spotlight-border";
 
 /**
@@ -21,21 +23,24 @@ const ProjectCard = forwardRef(({ project, className = "", ...props }, ref) => {
       borderColor="hsl(var(--primary))"
       spotlightSize="30% 40px"
     >
-      <div
+      <Link
+        href={`/work/${project?.slug ?? ""}`}
         ref={ref}
-        className={`group cursor-pointer bg-background border border-border rounded-lg ${className}`}
+        className={`group block bg-background border border-border rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background ${className}`}
+        role="link"
+        aria-label={`View details for ${project?.title}`}
+        tabIndex={0}
         {...props}
       >
         {/* Media */}
         <div className="relative overflow-hidden rounded-lg mb-1 bg-muted aspect-[16/9]">
-          
-          <div className="absolute inset-0 flex items-center justify-center">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover"
-            />
-          </div>
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 600px"
+            className="object-cover"
+          />
         </div>
 
         {/* Content */}
@@ -47,7 +52,7 @@ const ProjectCard = forwardRef(({ project, className = "", ...props }, ref) => {
             {project.description}
           </p>
         </div>
-      </div>
+      </Link>
     </SpotlightBorder>
   );
 });

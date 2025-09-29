@@ -1,7 +1,7 @@
 "use client";
 import { forwardRef, useRef } from "react";
-import * as entry from "@/app/lib/animation/entry";
-import { useAnimate } from "@/app/lib/animation/hooks/use-animate";
+import * as entry from "@/lib/animation/entry";
+import { useAnimate } from "@/lib/animation/hooks/use-animate";
 
 const animationMap = {
   fadeIn: entry.fadeIn,

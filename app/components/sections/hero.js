@@ -1,7 +1,7 @@
 "use client";
 
-import AnimatedDiv from "@/app/components/ui/animated-div";
-import Grid, { GridRow } from "../ui/grid";
+import AnimatedDiv from "@/components/ui/animated-div";
+import Grid, { GridRow } from "@/components/ui/grid";
 
 /**
  * Enhanced Hero Section Component
@@ -27,8 +27,8 @@ export default function Hero() {
               blur
               className="opacity-0"
             >
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground text-center transition-none">
-                Hello, I'm Natan A Frontend Developer
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground text-center transition-none">
+                Hello, I'm Natan A Website Developer
               </h1>
             </AnimatedDiv>
           }
@@ -44,8 +44,8 @@ export default function Hero() {
             >
               <p className="text-base text-muted-foreground dark:text-muted-foreground text-center max-w-2xl">
                 Experience in advanced web frameworks and server-side
-                Programming. Managing, designing, and building A kick-butt
-                website for clients using code, no-code, and AI.
+                Programming. Managing, designing, and building A production
+                ready websites for clients using code, no-code, and AI.
               </p>
             </AnimatedDiv>
           }

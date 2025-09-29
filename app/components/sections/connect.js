@@ -2,10 +2,10 @@
 
 import { useRef } from "react";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";
-import ActionButton from "../ui/action-button";
-import SpotlightBorder from "../ui/spotlight-border";
-import Grid, { GridRow } from "../ui/grid";
-import AnimatedInView from "@/app/components/ui/animated-in-view";
+import ActionButton from "@/components/ui/action-button";
+import SpotlightBorder from "@/components/ui/spotlight-border";
+import Grid, { GridRow } from "@/components/ui/grid";
+import AnimatedInView from "@/components/ui/animated-in-view";
 
 /**
  * Connect Section Component
@@ -62,10 +62,11 @@ export default function Connect() {
                   spotlightSize="30% 40px"
                 >
                   <div className="border border-border p-6 rounded-lg bg-background">
-                    <p className="text-muted-foreground mb-6 text-sm md:max-w-[60%]">
-                      I'm always open to discussing new projects, creative ideas
-                      or opportunities. If it lives on the web, we can make it
-                      happen.
+                    <p className="text-muted-foreground mb-6 text-sm md:max-w-[80%]">
+                      Hi I'm Natan, a website developer at Deloitte Israel with
+                      extensive experience in front-end development and no-code
+                      solutions. I'm always open to discussing new projects,
+                      creative ideas or opportunities.
                     </p>
 
                     <div className="space-y-4">

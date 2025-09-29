@@ -2,10 +2,10 @@
 
 import { useRef, useEffect } from "react";
 import { BriefcaseIcon } from "@heroicons/react/24/solid";
-import ActionButton from "../ui/action-button";
-import SpotlightBorder from "../ui/spotlight-border";
-import Grid, { GridRow } from "../ui/grid";
-import AnimatedInView from "@/app/components/ui/animated-in-view";
+import ActionButton from "@/components/ui/action-button";
+import SpotlightBorder from "@/components/ui/spotlight-border";
+import Grid, { GridRow } from "@/components/ui/grid";
+import AnimatedInView from "@/components/ui/animated-in-view";
 
 export default function WorkExperience() {
   const titleRef = useRef(null);

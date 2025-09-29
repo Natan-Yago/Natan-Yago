@@ -1,16 +1,15 @@
 "use client";
 
-import Grid, { GridRow } from "../ui/grid";
-import SocialGrid from "../ui/social-grid";
-import SpotlightBorder from "../ui/spotlight-border";
-import AnimatedInView from "@/app/components/ui/animated-in-view";
+import Grid, { GridRow } from "@/components/ui/grid";
+import SocialGrid from "@/components/ui/social-grid";
+import SpotlightBorder from "@/components/ui/spotlight-border";
+import AnimatedInView from "@/components/ui/animated-in-view";
 
 const SKILLS = [
   "JavaScript",
   "CSS",
   "React",
   "Next.js",
-  "Vue.js",
   "MongoDB",
   "Tailwind",
   "GSAP",
@@ -18,6 +17,7 @@ const SKILLS = [
   "Webflow",
   "Framer",
   "AEM",
+  "Marketo",
 ];
 
 export default function Skills() {

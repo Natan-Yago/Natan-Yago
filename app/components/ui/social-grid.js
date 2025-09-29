@@ -1,6 +1,6 @@
 const cx = (...classes) => classes.filter(Boolean).join(" ");
 import SpotlightBorder from "./spotlight-border";
-import AnimatedInView from "@/app/components/ui/animated-in-view";
+import AnimatedInView from "@/components/ui/animated-in-view";
 
 export default function SocialGrid({
   items = [],

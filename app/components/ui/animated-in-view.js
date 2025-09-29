@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import * as entry from "@/app/lib/animation/entry";
+import * as entry from "@/lib/animation/entry";
 
 const animationMap = {
   fadeIn: entry.fadeIn,

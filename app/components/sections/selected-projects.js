@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import AnimatedDiv from "@/app/components/ui/animated-div";
-import AnimatedInView from "@/app/components/ui/animated-in-view";
+import AnimatedDiv from "@/components/ui/animated-div";
+import AnimatedInView from "@/components/ui/animated-in-view";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
-import ProjectCard from "../ui/project-card";
-import ActionButton from "../ui/action-button";
-import Grid, { GridRow } from "../ui/grid";
-import { listWork } from "@/app/lib/work";
+import ProjectCard from "@/components/ui/project-card";
+import ActionButton from "@/components/ui/action-button";
+import Grid, { GridRow } from "@/components/ui/grid";
+import { listWork } from "@/lib/work";
 
 /**
  * Selected Projects Section Component

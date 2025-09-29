@@ -20,6 +20,13 @@ A modern, responsive portfolio website built with Next.js showcasing my work and
 
 ## Getting Started
 
+## Guides
+
+See `guides/` for implementation guides and the tracker:
+
+- `guides/case-study-implementation.md`
+- `guides/tracker.md`
+
 First, install dependencies:
 
 ```bash
@@ -51,6 +58,20 @@ public/
 ├── images/            # Project images and logos
 └── ...               # Static assets
 ```
+
+## Authoring workflow (Case Studies)
+
+1. Add/update an entry in `app/data/work.json` using the existing shape. Set `caseStudy: true` to render the in-site case page.
+2. Optionally include a `case` object with `sections` to render rich content. Supported section types: `text`, `image`, `stats`, `quote`, `list`.
+3. Ensure your hero image exists in `public/images/projects/` and reference it via the project `image` field.
+4. Visit `/work/{slug}` to review the page. All projects use the same grid-based CaseStudy layout.
+
+## Rollout checklist
+
+- All project links point to `/work/{slug}` (handled by `ProjectCard`).
+- Dynamic route `/work/[slug]` uses static params for known slugs.
+- No redirects: pages without case content still render the uniform CaseStudy layout.
+- Images optimized via `next/image`; case hero is priority for LCP.
 
 ## License
 

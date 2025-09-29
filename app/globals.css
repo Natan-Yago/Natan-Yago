@@ -133,4 +133,16 @@ header {
   }
 }
 
+/* Text Selection Styling */
+::selection {
+  background: #146ef5;
+  color: white;
+}
+
+/* Firefox support */
+::-moz-selection {
+  background: #146ef5;
+  color: white;
+}
+
 /* (Custom grid/container classes removed; using Tailwind utilities instead) */

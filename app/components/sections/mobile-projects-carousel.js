@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Grid, { GridRow } from "../ui/grid";
-import Carousel from "../ui/carousel";
-import { listWork } from "@/app/lib/work";
-import ActionButton from "../ui/action-button";
+import Grid, { GridRow } from "@/components/ui/grid";
+import Carousel from "@/components/ui/carousel";
+import { listWork } from "@/lib/work";
+import ActionButton from "@/components/ui/action-button";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
-import AnimatedDiv from "@/app/components/ui/animated-div";
+import AnimatedDiv from "@/components/ui/animated-div";
 
 /**
  * MobileProjectsCarousel

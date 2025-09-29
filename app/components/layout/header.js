@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import ThemeSwitcher from "../ui/theme-switcher";
+import ThemeSwitcher from "@/components/ui/theme-switcher";
 import { useEffect, useRef, useState } from "react";
-import MenuModal from "../ui/menu-modal";
-import AnimatedDiv from "@/app/components/ui/animated-div";
-import * as entry from "@/app/lib/animation/entry";
+import MenuModal from "@/components/ui/menu-modal";
+import AnimatedDiv from "@/components/ui/animated-div";
+import * as entry from "@/lib/animation/entry";
 
 const navItems = [
   { name: "Work", href: "/work" },

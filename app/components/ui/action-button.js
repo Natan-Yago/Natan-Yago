@@ -8,7 +8,7 @@ import { gsap } from "gsap";
  * ActionButton Component
  *
  * A reusable button component that can be used for navigation with customizable icon and text
- * With GSAP animation for text slide effect on hover
+ * With GSAP animation for text slide effect on hover (can be disabled)
  *
  * @param {Object} props - Component props
  * @param {string} props.href - The URL to navigate to
@@ -16,6 +16,7 @@ import { gsap } from "gsap";
  * @param {string} props.hoverText - The text to display on hover (defaults to same as text)
  * @param {React.ReactNode} props.icon - The icon component to display
  * @param {string} props.iconPosition - Position of the icon, either 'left' or 'right' (default: 'right')
+ * @param {boolean} props.noAnimation - Disable hover animation (default: false)
  * @param {string} props.className - Additional CSS classes
  * @param {Object} props.rest - Any additional props to pass to the Link component
  */
@@ -25,6 +26,7 @@ export default function ActionButton({
   hoverText = text,
   icon,
   iconPosition = "right",
+  noAnimation = false,
   className = "",
   ...rest
 }) {
@@ -35,6 +37,8 @@ export default function ActionButton({
   const [maxWidth, setMaxWidth] = useState(0);
 
   useEffect(() => {
+    if (noAnimation) return;
+
     const button = buttonRef.current;
     const defaultText = defaultTextRef.current;
     const hoverText = hoverTextRef.current;
@@ -77,7 +81,7 @@ export default function ActionButton({
       }
       tl.kill();
     };
-  }, []);
+  }, [noAnimation]);
 
   useEffect(() => {
     const textContainer = textContainerRef.current;
@@ -115,20 +119,24 @@ export default function ActionButton({
       {icon && iconPosition === "left" && (
         <span className="mr-2 flex-shrink-0">{icon}</span>
       )}
-      <div
-        className="relative overflow-hidden transition-none"
-        ref={textContainerRef}
-      >
-        <div ref={defaultTextRef} className="whitespace-nowrap block">
-          {text}
-        </div>
+      {noAnimation ? (
+        <span className="whitespace-nowrap">{text}</span>
+      ) : (
         <div
-          className="absolute top-0 left-0 whitespace-nowrap block opacity-0 translate-y-full"
-          ref={hoverTextRef}
+          className="relative overflow-hidden transition-none"
+          ref={textContainerRef}
         >
-          {hoverText}
+          <div ref={defaultTextRef} className="whitespace-nowrap block">
+            {text}
+          </div>
+          <div
+            className="absolute top-0 left-0 whitespace-nowrap block opacity-0 translate-y-full"
+            ref={hoverTextRef}
+          >
+            {hoverText}
+          </div>
         </div>
-      </div>
+      )}
       {icon && iconPosition === "right" && (
         <span className="ml-2 flex-shrink-0">{icon}</span>
       )}

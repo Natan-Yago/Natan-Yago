@@ -1,8 +1,8 @@
 "use client";
 
-import ThemeSwitcher from "../ui/theme-switcher";
-import Grid, { GridRow } from "../ui/grid";
-import AnimatedInView from "@/app/components/ui/animated-in-view";
+import ThemeSwitcher from "@/components/ui/theme-switcher";
+import Grid, { GridRow } from "@/components/ui/grid";
+import AnimatedInView from "@/components/ui/animated-in-view";
 
 /**
  * Simple Footer Component

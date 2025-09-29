@@ -3,16 +3,55 @@
     "slug": "dcom",
     "title": "DCOM Platform",
     "description": "B2B e‑commerce modernization.",
-    "year": 2024,
+    "year": 2025,
     "image": "/images/projects/DCOM.png",
     "tags": ["e‑commerce", "B2B"],
     "tech": ["Next.js", "Tailwind", "GSAP"],
-    "links": { "live": null, "repo": null },
+    "links": { "live": "https://example.com", "repo": null },
     "role": "Frontend",
     "client": "Deloitte",
     "featured": true,
     "priority": 1,
-    "caseStudy": true
+    "caseStudy": true,
+    "case": {
+      "hero": { "summary": "Modernized B2B storefront across regions." },
+      "sections": [
+        {
+          "type": "overview",
+          "title": "Overview",
+          "body": "We modernized the storefront and rolled out across 6 markets.",
+          "image": {
+            "src": "/images/projects/DCOM.png",
+            "alt": "DCOM Dashboard"
+          }
+        },
+        {
+          "type": "challenges",
+          "title": "Challenges & Solutions",
+          "items": [
+            {
+              "challenge": "Heavy third‑party scripts slowed TTI",
+              "solution": "Deferred imports and route‑level code‑splitting",
+              "impact": "TTI improved by 28%"
+            },
+            {
+              "challenge": "Locale‑specific content sprawl",
+              "solution": "CMS schemas and i18n routing"
+            }
+          ]
+        },
+        {
+          "type": "gallery",
+          "title": "Screens",
+          "images": [
+            { "src": "/images/projects/DCOM.png", "alt": "Dashboard" },
+            { "src": "/images/projects/DCOM.png", "alt": "Checkout" },
+            { "src": "/images/projects/DCOM.png", "alt": "Checkout" },
+            { "src": "/images/projects/DCOM.png", "alt": "Checkout" }
+          ]
+        }
+      ]
+    }
   },
   {
     "slug": "deloitte-digital",
@@ -27,7 +66,42 @@
     "client": "Deloitte",
     "featured": true,
     "priority": 2,
-    "caseStudy": false
+    "caseStudy": false,
+    "case": {
+      "sections": [
+        {
+          "type": "overview",
+          "title": "Overview",
+          "body": "Design system foundations and reusable UI assets to speed up delivery across teams.",
+          "image": {
+            "src": "/images/projects/DD.png",
+            "alt": "Deloitte Digital UI System"
+          }
+        },
+        {
+          "type": "challenges",
+          "title": "Challenges & Solutions",
+          "items": [
+            {
+              "challenge": "Inconsistent component usage across brands",
+              "solution": "Tokenized design system and shared components"
+            },
+            {
+              "challenge": "Slow design‑to‑dev handoff",
+              "solution": "Documented specs and Storybook artifacts"
+            }
+          ]
+        },
+        {
+          "type": "gallery",
+          "title": "Screens",
+          "images": [
+            { "src": "/images/projects/DD.png", "alt": "UI tokens" },
+            { "src": "/images/projects/DD.png", "alt": "Components" }
+          ]
+        }
+      ]
+    }
   },
   {
     "slug": "invoice-app",
@@ -42,7 +116,42 @@
     "client": "Internal",
     "featured": true,
     "priority": 10,
-    "caseStudy": false
+    "caseStudy": false,
+    "case": {
+      "sections": [
+        {
+          "type": "overview",
+          "title": "Overview",
+          "body": "A full‑stack invoices dashboard with filtering, CRUD, and dark mode.",
+          "image": {
+            "src": "/images/projects/invoice-app.jpg",
+            "alt": "Invoice App Dashboard"
+          }
+        },
+        {
+          "type": "challenges",
+          "title": "Challenges & Solutions",
+          "items": [
+            {
+              "challenge": "Complex state for filters and pagination",
+              "solution": "Derived state and memoized selectors"
+            },
+            {
+              "challenge": "Data loading performance",
+              "solution": "API pagination and optimistic updates"
+            }
+          ]
+        },
+        {
+          "type": "gallery",
+          "title": "Screens",
+          "images": [
+            { "src": "/images/projects/invoice-app.jpg", "alt": "List view" },
+            { "src": "/images/projects/invoice-app.jpg", "alt": "Detail view" }
+          ]
+        }
+      ]
+    }
   },
   {
     "slug": "rebel",
@@ -57,7 +166,42 @@
     "client": "Rebel",
     "featured": true,
     "priority": 11,
-    "caseStudy": false
+    "caseStudy": false,
+    "case": {
+      "sections": [
+        {
+          "type": "overview",
+          "title": "Overview",
+          "body": "A horizontally scrolling marketing site with smooth interactions.",
+          "image": {
+            "src": "/images/projects/rebel.jpg",
+            "alt": "Rebel Marketing Site"
+          }
+        },
+        {
+          "type": "challenges",
+          "title": "Challenges & Solutions",
+          "items": [
+            {
+              "challenge": "Scroll performance on low‑end devices",
+              "solution": "GPU‑friendly transforms and reduced motion guard"
+            },
+            {
+              "challenge": "SEO with heavy animations",
+              "solution": "SSR content and accessible fallbacks"
+            }
+          ]
+        },
+        {
+          "type": "gallery",
+          "title": "Screens",
+          "images": [
+            { "src": "/images/projects/rebel.jpg", "alt": "Landing" },
+            { "src": "/images/projects/rebel.jpg", "alt": "Showcase" }
+          ]
+        }
+      ]
+    }
   },
   {
     "slug": "planets-fact-site",
@@ -72,7 +216,48 @@
     "client": "Internal",
     "featured": true,
     "priority": 12,
-    "caseStudy": false
+    "caseStudy": false,
+    "case": {
+      "sections": [
+        {
+          "type": "overview",
+          "title": "Overview",
+          "body": "Responsive, data‑driven content with tabbed views and charts.",
+          "image": {
+            "src": "/images/projects/Planets-fact-site.jpg",
+            "alt": "Planets Fact Site"
+          }
+        },
+        {
+          "type": "challenges",
+          "title": "Challenges & Solutions",
+          "items": [
+            {
+              "challenge": "Presenting complex data clearly",
+              "solution": "Progressive disclosure and mobile‑first layout"
+            },
+            {
+              "challenge": "Asset sizes",
+              "solution": "Optimized images and lazy loading"
+            }
+          ]
+        },
+        {
+          "type": "gallery",
+          "title": "Screens",
+          "images": [
+            {
+              "src": "/images/projects/Planets-fact-site.jpg",
+              "alt": "Overview"
+            },
+            {
+              "src": "/images/projects/Planets-fact-site.jpg",
+              "alt": "Details"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "slug": "rozis-deli",
@@ -87,7 +272,42 @@
     "client": "Rozi's Deli",
     "featured": true,
     "priority": 13,
-    "caseStudy": false
+    "caseStudy": false,
+    "case": {
+      "sections": [
+        {
+          "type": "overview",
+          "title": "Overview",
+          "body": "A fresh restaurant website with menu highlights and reservation CTA.",
+          "image": {
+            "src": "/images/projects/rozis-deli.png",
+            "alt": "Rozi's Deli"
+          }
+        },
+        {
+          "type": "challenges",
+          "title": "Challenges & Solutions",
+          "items": [
+            {
+              "challenge": "Showcasing imagery without hurting LCP",
+              "solution": "Next/Image with proper sizing and priority only on hero"
+            },
+            {
+              "challenge": "Keeping content fresh",
+              "solution": "CMS‑ready structure for menu updates"
+            }
+          ]
+        },
+        {
+          "type": "gallery",
+          "title": "Screens",
+          "images": [
+            { "src": "/images/projects/rozis-deli.png", "alt": "Home" },
+            { "src": "/images/projects/rozis-deli.png", "alt": "Menu" }
+          ]
+        }
+      ]
+    }
   },
   {
     "slug": "psycle",
@@ -102,7 +322,39 @@
     "client": "Psycle",
     "featured": true,
     "priority": 14,
-    "caseStudy": false
+    "caseStudy": false,
+    "case": {
+      "sections": [
+        {
+          "type": "overview",
+          "title": "Overview",
+          "body": "A clean marketing one‑pager with compelling visuals and CTAs.",
+          "image": { "src": "/images/projects/psycle.png", "alt": "Psycle" }
+        },
+        {
+          "type": "challenges",
+          "title": "Challenges & Solutions",
+          "items": [
+            {
+              "challenge": "Conveying value quickly",
+              "solution": "Above‑the‑fold clarity and scannable sections"
+            },
+            {
+              "challenge": "Consistent brand tone",
+              "solution": "Shared typography scale and spacing system"
+            }
+          ]
+        },
+        {
+          "type": "gallery",
+          "title": "Screens",
+          "images": [
+            { "src": "/images/projects/psycle.png", "alt": "Hero" },
+            { "src": "/images/projects/psycle.png", "alt": "Features" }
+          ]
+        }
+      ]
+    }
   },
   {
     "slug": "hila-kadi",
@@ -117,7 +369,42 @@
     "client": "Hila Kadi",
     "featured": true,
     "priority": 15,
-    "caseStudy": false
+    "caseStudy": false,
+    "case": {
+      "sections": [
+        {
+          "type": "overview",
+          "title": "Overview",
+          "body": "Portfolio and storefront experience tailored for an artist brand.",
+          "image": {
+            "src": "/images/projects/Hila-Kadi.png",
+            "alt": "Hila Kadi"
+          }
+        },
+        {
+          "type": "challenges",
+          "title": "Challenges & Solutions",
+          "items": [
+            {
+              "challenge": "Balancing shop and portfolio",
+              "solution": "Dedicated routes plus shared brand styling"
+            },
+            {
+              "challenge": "Image-heavy pages",
+              "solution": "Responsive images and blur-up placeholders"
+            }
+          ]
+        },
+        {
+          "type": "gallery",
+          "title": "Screens",
+          "images": [
+            { "src": "/images/projects/Hila-Kadi.png", "alt": "Gallery" },
+            { "src": "/images/projects/Hila-Kadi.png", "alt": "Product" }
+          ]
+        }
+      ]
+    }
   },
   {
     "slug": "kitto-kato",
@@ -132,7 +419,42 @@
     "client": "Kitto Kato",
     "featured": false,
     "priority": 16,
-    "caseStudy": false
+    "caseStudy": false,
+    "case": {
+      "sections": [
+        {
+          "type": "overview",
+          "title": "Overview",
+          "body": "Restaurant website with menu, hours, and booking prompts.",
+          "image": {
+            "src": "/images/projects/Kitto-Kato.png",
+            "alt": "Kitto Kato"
+          }
+        },
+        {
+          "type": "challenges",
+          "title": "Challenges & Solutions",
+          "items": [
+            {
+              "challenge": "Mobile navigation for deep menu",
+              "solution": "Sticky actions and simplified IA"
+            },
+            {
+              "challenge": "SEO for local discovery",
+              "solution": "Structured data and clean metadata"
+            }
+          ]
+        },
+        {
+          "type": "gallery",
+          "title": "Screens",
+          "images": [
+            { "src": "/images/projects/Kitto-Kato.png", "alt": "Home" },
+            { "src": "/images/projects/Kitto-Kato.png", "alt": "Menu" }
+          ]
+        }
+      ]
+    }
   },
   {
     "slug": "siam-massage",
@@ -147,7 +469,39 @@
     "client": "Siam Massage",
     "featured": false,
     "priority": 17,
-    "caseStudy": false
+    "caseStudy": false,
+    "case": {
+      "sections": [
+        {
+          "type": "overview",
+          "title": "Overview",
+          "body": "Spa site highlighting treatments, pricing, and contact.",
+          "image": { "src": "/images/projects/siam.png", "alt": "Siam Massage" }
+        },
+        {
+          "type": "challenges",
+          "title": "Challenges & Solutions",
+          "items": [
+            {
+              "challenge": "Conveying trust and cleanliness",
+              "solution": "Warm visual language and testimonials"
+            },
+            {
+              "challenge": "Booking friction",
+              "solution": "Prominent CTAs and WhatsApp link"
+            }
+          ]
+        },
+        {
+          "type": "gallery",
+          "title": "Screens",
+          "images": [
+            { "src": "/images/projects/siam.png", "alt": "Home" },
+            { "src": "/images/projects/siam.png", "alt": "Treatments" }
+          ]
+        }
+      ]
+    }
   },
   {
     "slug": "dr-arnon-agmon",
@@ -162,7 +516,42 @@
     "client": "Dr. Arnon Agmon",
     "featured": false,
     "priority": 18,
-    "caseStudy": false
+    "caseStudy": false,
+    "case": {
+      "sections": [
+        {
+          "type": "overview",
+          "title": "Overview",
+          "body": "Medical articles hub with structured content and search.",
+          "image": {
+            "src": "/images/projects/Dr-Arnon-Agmon.png",
+            "alt": "Dr. Arnon Agmon"
+          }
+        },
+        {
+          "type": "challenges",
+          "title": "Challenges & Solutions",
+          "items": [
+            {
+              "challenge": "Organizing large content sets",
+              "solution": "Faceted nav and clear taxonomies"
+            },
+            {
+              "challenge": "Readability across devices",
+              "solution": "Comfortable line length and typography"
+            }
+          ]
+        },
+        {
+          "type": "gallery",
+          "title": "Screens",
+          "images": [
+            { "src": "/images/projects/Dr-Arnon-Agmon.png", "alt": "Home" },
+            { "src": "/images/projects/Dr-Arnon-Agmon.png", "alt": "Article" }
+          ]
+        }
+      ]
+    }
   },
   {
     "slug": "a1-studio",
@@ -177,7 +566,42 @@
     "client": "A1 Studio",
     "featured": false,
     "priority": 19,
-    "caseStudy": false
+    "caseStudy": false,
+    "case": {
+      "sections": [
+        {
+          "type": "overview",
+          "title": "Overview",
+          "body": "Studio website showcasing services and selected work.",
+          "image": {
+            "src": "/images/projects/a1-studio.png",
+            "alt": "A1 Studio"
+          }
+        },
+        {
+          "type": "challenges",
+          "title": "Challenges & Solutions",
+          "items": [
+            {
+              "challenge": "Balancing visuals and performance",
+              "solution": "Optimized media, lazy loads, and prefetching"
+            },
+            {
+              "challenge": "Clear contact funnel",
+              "solution": "Persistent CTA with short contact form"
+            }
+          ]
+        },
+        {
+          "type": "gallery",
+          "title": "Screens",
+          "images": [
+            { "src": "/images/projects/a1-studio.png", "alt": "Home" },
+            { "src": "/images/projects/a1-studio.png", "alt": "Work" }
+          ]
+        }
+      ]
+    }
   },
   {
     "slug": "kamoor",
@@ -192,6 +616,38 @@
     "client": "Kamoor",
     "featured": false,
     "priority": 20,
-    "caseStudy": false
+    "caseStudy": false,
+    "case": {
+      "sections": [
+        {
+          "type": "overview",
+          "title": "Overview",
+          "body": "Corporate site with product pages and lead capture.",
+          "image": { "src": "/images/projects/kamoor.png", "alt": "Kamoor" }
+        },
+        {
+          "type": "challenges",
+          "title": "Challenges & Solutions",
+          "items": [
+            {
+              "challenge": "Communicating complex offerings",
+              "solution": "Clear information architecture and comparison tables"
+            },
+            {
+              "challenge": "Lead routing",
+              "solution": "Segmented forms and analytics events"
+            }
+          ]
+        },
+        {
+          "type": "gallery",
+          "title": "Screens",
+          "images": [
+            { "src": "/images/projects/kamoor.png", "alt": "Home" },
+            { "src": "/images/projects/kamoor.png", "alt": "Product" }
+          ]
+        }
+      ]
+    }
   }
 ]

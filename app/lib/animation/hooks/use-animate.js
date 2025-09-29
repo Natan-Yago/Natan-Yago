@@ -1,6 +1,6 @@
 "use client";
 import { useGSAP } from "@gsap/react";
-import { getGSAP } from "../../animation/gsap-client";
+import { getGSAP } from "@/lib/animation/gsap-client";
 
 export const useAnimate = (ref, fn, deps = []) => {
   useGSAP(() => {

@@ -1,4 +1,4 @@
-import work from "../data/work.json";
+import work from "@/data/work.json";
 
 export async function listWork({ featuredOnly = false } = {}) {
   const items = Array.isArray(work) ? work : [];
