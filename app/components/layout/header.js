@@ -11,8 +11,8 @@ import * as entry from "@/lib/animation/entry";
 
 const navItems = [
   { name: "Work", href: "/work/" },
-  { name: "Experience", href: "#work-experience" },
-  { name: "Connect", href: "#connect" },
+  { name: "Experience", href: `${withBasePath("/")}#work-experience` },
+  { name: "Connect", href: `${withBasePath("/")}#connect` },
 ];
 
 /**
