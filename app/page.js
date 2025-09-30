@@ -4,7 +4,6 @@ import MobileProjectsCarousel from "./components/sections/mobile-projects-carous
 import WorkExperience from "./components/sections/work-experience";
 import Connect from "./components/sections/connect";
 import Skills from "./components/sections/skills";
-import PongSection from "./components/sections/pong";
 import { listWork } from "./lib/work";
 
 export default async function Home() {
@@ -21,7 +20,6 @@ export default async function Home() {
       </div>
       <WorkExperience />
       <Skills />
-      <PongSection />
       <Connect />
     </>
   );
