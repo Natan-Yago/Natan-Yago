@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAGES: "true"
+      NPM_CONFIG_PRODUCTION: "false" # ensure devDependencies are installed
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,8 +33,13 @@ jobs:
       - name: Install dependencies
         run: npm ci --no-audit --no-fund
 
+      - name: Verify eslint availability
+        run: |
+          npx --yes which eslint || echo "eslint not found"
+          npx --yes eslint --version || echo "eslint version not detected"
+
       - name: Lint
-        run: npm run lint
+        run: npx eslint . --max-warnings=0
 
       - name: Restore Next.js cache
         uses: actions/cache@v4
