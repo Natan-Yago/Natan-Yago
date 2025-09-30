@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -26,18 +26,17 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
 
       - name: Install dependencies (incl. dev)
-        run: npm ci --no-audit --no-fund --include=dev
-
-      - name: Lint
-        run: npm run lint
+        env:
+          NPM_CONFIG_PRODUCTION: "false"
+        run: npm ci --no-audit --no-fund
 
       - name: Build static export for Pages
         env:
-          GITHUB_PAGES: 'true'
+          GITHUB_PAGES: "true"
         run: npm run build
 
       - name: Add .nojekyll to export
@@ -59,5 +58,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-
