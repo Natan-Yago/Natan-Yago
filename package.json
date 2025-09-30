@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pages:build": "GITHUB_PAGES=true next build",
+    "preview:export": "npm run pages:build && npx serve -l 4321 out"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
