@@ -129,14 +129,25 @@ export default function MenuModal({ isOpen, onClose, items = [], id }) {
         <nav className="relative h-full w-full flex flex-col items-center justify-center p-6">
           <div className="flex flex-col items-center justify-center gap-6 mt-10">
             {items.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-2xl md:text-3xl text-foreground hover:text-accent-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                onClick={onClose}
-              >
-                {item.name}
-              </Link>
+              item.href?.includes("#") ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-2xl md:text-3xl text-foreground hover:text-accent-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  onClick={onClose}
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-2xl md:text-3xl text-foreground hover:text-accent-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  onClick={onClose}
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
           </div>
           <div className="absolute left-1/2 -translate-x-1/2 bottom-6">
