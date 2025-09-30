@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useMemo } from "react";
 import * as entry from "@/lib/animation/entry";
 
 const animationMap = {
@@ -34,11 +34,15 @@ export default function AnimatedInView({
 }) {
   const ref = useRef(null);
 
+  const finalOptions = useMemo(
+    () => (blur === false ? options : { ...options, blur }),
+    [options, blur]
+  );
+
   useEffect(() => {
     if (!ref.current) return;
     const el = ref.current;
     const fn = animationMap[animation] ?? entry.fadeInUp;
-    const finalOptions = blur === false ? options : { ...options, blur };
 
     let hasTriggered = false;
     const observer = new IntersectionObserver(
@@ -59,7 +63,7 @@ export default function AnimatedInView({
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [animation, JSON.stringify(options), blur, threshold, rootMargin, once]);
+  }, [animation, finalOptions, threshold, rootMargin, once]);
 
   return (
     <Tag ref={ref} className={className} {...rest}>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import Image from "next/image";
 import { BriefcaseIcon } from "@heroicons/react/24/solid";
 import ActionButton from "@/components/ui/action-button";
 import SpotlightBorder from "@/components/ui/spotlight-border";
@@ -58,9 +59,11 @@ export default function WorkExperience() {
                       <div className="flex justify-between items-start">
                         <div className="flex items-start gap-4">
                           <div className="h-12 w-12 flex items-center justify-center">
-                            <img
-                              src="../images/logos/deloitte-favicon.webp"
+                            <Image
+                              src="/images/logos/deloitte-favicon.webp"
                               alt="Deloitte logo"
+                              width={48}
+                              height={48}
                               className="h-full w-full object-contain"
                             />
                           </div>
@@ -93,9 +96,11 @@ export default function WorkExperience() {
                       <div className="flex justify-between items-start">
                         <div className="flex items-start gap-4">
                           <div className="h-12 w-12 flex items-center justify-center">
-                            <img
-                              src="../images/logos/terminal-x-favicon.webp"
+                            <Image
+                              src="/images/logos/terminal-x-favicon.webp"
                               alt="Terminal X logo"
+                              width={48}
+                              height={48}
                               className="h-full w-full object-contain"
                             />
                           </div>

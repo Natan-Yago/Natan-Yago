@@ -24,7 +24,10 @@ export default function Carousel({
   const prevRef = useRef(null);
   const timerRef = useRef(null);
 
-  const safeProjects = Array.isArray(projects) ? projects : [];
+  const safeProjects = useMemo(
+    () => (Array.isArray(projects) ? projects : []),
+    [projects]
+  );
   const length = safeProjects.length;
 
   const nextIndex = useCallback(
