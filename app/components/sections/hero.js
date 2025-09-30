@@ -28,7 +28,7 @@ export default function Hero() {
               className="opacity-0"
             >
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground text-center transition-none">
-                Hello, I'm Natan A Website Developer
+                Hello, I&apos;m Natan A Website Developer
               </h1>
             </AnimatedDiv>
           }

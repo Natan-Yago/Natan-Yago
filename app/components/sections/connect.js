@@ -63,10 +63,10 @@ export default function Connect() {
                 >
                   <div className="border border-border p-6 rounded-lg bg-background">
                     <p className="text-muted-foreground mb-6 text-sm md:max-w-[80%]">
-                      Hi I'm Natan, a website developer at Deloitte Israel with
-                      extensive experience in front-end development and no-code
-                      solutions. I'm always open to discussing new projects,
-                      creative ideas or opportunities.
+                      Hi I&apos;m Natan, a website developer at Deloitte Israel
+                      with extensive experience in front-end development and
+                      no-code solutions. I&apos;m always open to discussing new
+                      projects, creative ideas or opportunities.
                     </p>
 
                     <div className="space-y-4">

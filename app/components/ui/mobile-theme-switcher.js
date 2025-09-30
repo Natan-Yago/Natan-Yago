@@ -63,27 +63,44 @@ export default function MobileThemeSwitcher() {
         role="radiogroup"
         aria-label="Theme selection"
       >
-        {themes.map(({ name, icon: Icon, label }) => (
-          <button
-            key={name}
-            onClick={() => setTheme(name)}
-            className={`
-              p-1 rounded-full transition-all duration-200 ease-in-out
-              focus:outline-none
-              ${
-                theme === name
-                  ? "bg-gray-100 dark:bg-gray-800 shadow-sm scale-105"
-                  : "hover:bg-gray-100 dark:hover:bg-gray-800 hover:scale-105"
-              }
-            `}
-            aria-label={label}
-            aria-pressed={theme === name}
-            role="radio"
-            tabIndex={0}
-          >
-            <Icon className="h-[18px] w-[18px] text-gray-700 dark:text-gray-300 transition-colors duration-200" />
-          </button>
-        ))}
+        {themes.map(({ name, icon: Icon, label }, idx) => {
+          const selected = theme === name;
+          return (
+            <button
+              key={name}
+              onClick={() => setTheme(name)}
+              onKeyDown={(e) => {
+                if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+                  e.preventDefault();
+                  const next = themes[(idx + 1) % themes.length].name;
+                  setTheme(next);
+                } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+                  e.preventDefault();
+                  const prev = themes[(idx - 1 + themes.length) % themes.length].name;
+                  setTheme(prev);
+                } else if (e.key === " " || e.key === "Enter") {
+                  e.preventDefault();
+                  setTheme(name);
+                }
+              }}
+              className={`
+                p-1 rounded-full transition-all duration-200 ease-in-out focus:outline-none
+                ${
+                  selected
+                    ? "bg-gray-100 dark:bg-gray-800 shadow-sm scale-105"
+                    : "hover:bg-gray-100 dark:hover:bg-gray-800 hover:scale-105"
+                }
+              `}
+              aria-label={label}
+              role="radio"
+              aria-checked={selected}
+              tabIndex={selected ? 0 : -1}
+              data-selected={selected ? "true" : undefined}
+            >
+              <Icon className="h-[18px] w-[18px] text-gray-700 dark:text-gray-300 transition-colors duration-200" />
+            </button>
+          );
+        })}
       </div>
     </div>
   );
