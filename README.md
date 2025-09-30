@@ -93,6 +93,7 @@ This portfolio is configured for a fully static export and automatic deployment 
 4. A `.nojekyll` file is added to prevent Jekyll processing (important for folders that start with `_`).
 
 ### Workflow file
+
 Defined in `.github/workflows/deploy.yml` and triggers on pushes to `main`.
 
 ### Local preview with basePath
@@ -112,11 +113,11 @@ npm run preview:export
 
 ### Scripts
 
-| Script | Purpose |
-| ------ | ------- |
-| `npm run build` | Standard static build (no base path) |
-| `npm run pages:build` | Build with `GITHUB_PAGES=true` for production parity |
-| `npm run preview:export` | Build with GitHub Pages settings and serve locally |
+| Script                   | Purpose                                              |
+| ------------------------ | ---------------------------------------------------- |
+| `npm run build`          | Standard static build (no base path)                 |
+| `npm run pages:build`    | Build with `GITHUB_PAGES=true` for production parity |
+| `npm run preview:export` | Build with GitHub Pages settings and serve locally   |
 
 ### Custom domain (optional)
 
@@ -130,10 +131,10 @@ Add a `CNAME` file to `public/` (or echo it into `out/` during the workflow) and
 
 ### Troubleshooting
 
-| Symptom | Likely Cause | Fix |
-| ------- | ------------ | --- |
-| CSS/images 404 | Missing or wrong basePath | Ensure `GITHUB_PAGES=true` during build, confirm repo name matches |
-| 404 on deep link | Route not statically generated | Confirm `generateStaticParams` covers slug |
-| Assets double-prefixed | Manually prepended base path in code | Use root-relative paths (`/image.png`) and let Next rewrite |
+| Symptom                | Likely Cause                         | Fix                                                                |
+| ---------------------- | ------------------------------------ | ------------------------------------------------------------------ |
+| CSS/images 404         | Missing or wrong basePath            | Ensure `GITHUB_PAGES=true` during build, confirm repo name matches |
+| 404 on deep link       | Route not statically generated       | Confirm `generateStaticParams` covers slug                         |
+| Assets double-prefixed | Manually prepended base path in code | Use root-relative paths (`/image.png`) and let Next rewrite        |
 
 Deployment is automatic—push to `main` and the site updates.

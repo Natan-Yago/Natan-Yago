@@ -42,4 +42,5 @@ export async function generateStaticParams() {
   return items.map((i) => ({ slug: i.slug }));
 }
 
-export const dynamicParams = true;
+// Ensure only statically generated params are used for static export
+export const dynamicParams = false;
