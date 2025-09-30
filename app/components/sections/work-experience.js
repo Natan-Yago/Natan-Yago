@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import Image from "next/image";
+import { withBasePath } from "@/lib/base-path";
 import { BriefcaseIcon } from "@heroicons/react/24/solid";
 import ActionButton from "@/components/ui/action-button";
 import SpotlightBorder from "@/components/ui/spotlight-border";
@@ -60,7 +61,7 @@ export default function WorkExperience() {
                         <div className="flex items-start gap-4">
                           <div className="h-12 w-12 flex items-center justify-center">
                             <Image
-                              src="/images/logos/deloitte-favicon.webp"
+                              src={withBasePath("/images/logos/deloitte-favicon.webp")}
                               alt="Deloitte logo"
                               width={48}
                               height={48}
@@ -97,7 +98,7 @@ export default function WorkExperience() {
                         <div className="flex items-start gap-4">
                           <div className="h-12 w-12 flex items-center justify-center">
                             <Image
-                              src="/images/logos/terminal-x-favicon.webp"
+                              src={withBasePath("/images/logos/terminal-x-favicon.webp")}
                               alt="Terminal X logo"
                               width={48}
                               height={48}

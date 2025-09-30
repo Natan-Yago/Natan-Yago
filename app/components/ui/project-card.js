@@ -4,6 +4,7 @@ import { forwardRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import SpotlightBorder from "./spotlight-border";
+import { withBasePath } from "@/lib/base-path";
 
 /**
  * Reusable Project Card Component
@@ -35,7 +36,7 @@ const ProjectCard = forwardRef(({ project, className = "", ...props }, ref) => {
         {/* Media */}
         <div className="relative overflow-hidden rounded-lg mb-1 bg-muted aspect-[16/9]">
           <Image
-            src={project.image}
+            src={withBasePath(project.image)}
             alt={project.title}
             fill
             sizes="(max-width: 768px) 100vw, 600px"

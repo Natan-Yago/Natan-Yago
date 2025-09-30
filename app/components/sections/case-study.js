@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { withBasePath } from "@/lib/base-path";
 import Grid, { GridRow } from "@/components/ui/grid";
 import SpotlightBorder from "@/components/ui/spotlight-border";
 import AnimatedInView from "@/components/ui/animated-in-view";
@@ -58,8 +59,8 @@ const renderCaseSection = (section, index) => {
           {useVideo ? (
             <div className="bg-muted rounded-lg overflow-hidden">
               <video
-                src={section.video.src}
-                poster={section.video.poster}
+                src={withBasePath(section.video.src)}
+                poster={withBasePath(section.video.poster)}
                 controls
                 className="w-full h-auto"
               >
@@ -69,7 +70,7 @@ const renderCaseSection = (section, index) => {
           ) : (
             <div className="overflow-hidden rounded-lg bg-muted">
               <Image
-                src={section.image.src}
+                src={withBasePath(section.image.src)}
                 alt={section.image.alt || "Overview image"}
                 width={1200}
                 height={675}
@@ -144,8 +145,8 @@ const renderCaseSection = (section, index) => {
               radiusClass="rounded-lg"
             >
               <div className="overflow-hidden rounded-lg bg-muted">
-                <Image
-                  src={img.src}
+              <Image
+                  src={withBasePath(img.src)}
                   alt={img.alt || `Gallery image ${i + 1}`}
                   width={1200}
                   height={675}
@@ -191,7 +192,7 @@ const renderCaseSection = (section, index) => {
         <SpotlightBorder className="rounded-lg" radiusClass="rounded-lg">
           <div className="overflow-hidden rounded-lg bg-muted">
             <Image
-              src={section.src}
+              src={withBasePath(section.src)}
               alt={section.alt || "Case image"}
               width={1200}
               height={675}
@@ -318,7 +319,7 @@ export default function CaseStudy({ project }) {
                 >
                   <div className="overflow-hidden rounded-lg bg-muted">
                     <Image
-                      src={image}
+                      src={withBasePath(image)}
                       alt={title}
                       width={1200}
                       height={675}

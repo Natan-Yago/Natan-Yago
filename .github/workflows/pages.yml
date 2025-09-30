@@ -35,6 +35,7 @@ jobs:
       - name: Build static export for Pages
         env:
           GITHUB_PAGES: "true"
+          NEXT_PUBLIC_PAGES_BASE_PATH: "/Natan-Yago"
         run: npm run build
 
       - name: Add .nojekyll to export

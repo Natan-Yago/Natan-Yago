@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { withBasePath } from "@/lib/base-path";
 import Link from "next/link";
 import ThemeSwitcher from "@/components/ui/theme-switcher";
 import { useEffect, useRef, useState } from "react";
@@ -110,7 +111,7 @@ export default function Header() {
               <AnimatedDiv animation="fadeIn" className="opacity-0">
                 <Link href="/" className="flex items-center">
                   <Image
-                    src="/ny.png"
+                    src={withBasePath("/ny.png")}
                     alt="Logo"
                     width={36}
                     height={36}
