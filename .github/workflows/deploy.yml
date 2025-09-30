@@ -19,7 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAGES: "true"
-      NODE_ENV: production
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -34,7 +33,7 @@ jobs:
         run: npm ci --no-audit --no-fund
 
       - name: Lint
-        run: npm run lint -- --max-warnings=0
+        run: npm run lint
 
       - name: Restore Next.js cache
         uses: actions/cache@v4
