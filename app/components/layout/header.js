@@ -10,9 +10,9 @@ import AnimatedDiv from "@/components/ui/animated-div";
 import * as entry from "@/lib/animation/entry";
 
 const navItems = [
-  { name: "Work", href: "/work" },
-  { name: "Experience", href: "/#work-experience" },
-  { name: "Connect", href: "/#connect" },
+  { name: "Work", href: "/work/" },
+  { name: "Experience", href: "#work-experience" },
+  { name: "Connect", href: "#connect" },
 ];
 
 /**

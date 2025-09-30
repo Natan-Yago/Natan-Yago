@@ -7,6 +7,8 @@ const repoName = "Natan-Yago";
 const nextConfig = {
   // Generate a fully static export suitable for uploading to any static host
   output: "export",
+  // Ensure URLs end with a trailing slash to avoid GitHub Pages redirects losing hash fragments
+  trailingSlash: true,
   images: {
     // Disable the Next.js Image Optimization API for static hosting
     unoptimized: true,
