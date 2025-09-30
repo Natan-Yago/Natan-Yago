@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { withBasePath } from "@/lib/base-path";
+
+const PUBLIC_BASE = process.env.NEXT_PUBLIC_PAGES_BASE_PATH || "";
 import Link from "next/link";
 import ThemeSwitcher from "@/components/ui/theme-switcher";
 import { useEffect, useRef, useState } from "react";
@@ -11,8 +13,8 @@ import * as entry from "@/lib/animation/entry";
 
 const navItems = [
   { name: "Work", href: "/work/" },
-  { name: "Experience", href: "/#work-experience" },
-  { name: "Connect", href: "/#connect" },
+  { name: "Experience", href: `${PUBLIC_BASE}/#work-experience` },
+  { name: "Connect", href: `${PUBLIC_BASE}/#connect` },
 ];
 
 /**
@@ -151,12 +153,21 @@ export default function Header() {
                     options={{ delay: index * 0.08, duration: "fast" }}
                     className="opacity-0"
                   >
-                    <Link
-                      href={item.href}
-                      className="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium rounded-md hover:bg-accent"
-                    >
-                      {item.name}
-                    </Link>
+                    {item.href.includes("#") ? (
+                      <a
+                        href={item.href}
+                        className="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium rounded-md hover:bg-accent"
+                      >
+                        {item.name}
+                      </a>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium rounded-md hover:bg-accent"
+                      >
+                        {item.name}
+                      </Link>
+                    )}
                   </AnimatedDiv>
                 ))}
               </nav>
